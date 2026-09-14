@@ -1,0 +1,13 @@
+{
+  "name": "justhairs",
+  "version": "1.0.0",
+  "private": true,
+  "description": "JustHairs — Premium wig e-commerce store (monorepo root)",
+  "scripts": {
+    "frontend": "npm --prefix frontend run dev",
+    "backend": "npm --prefix backend run dev",
+    "install:all": "npm install --prefix frontend && npm install --prefix backend",
+    "build:frontend": "npm --prefix frontend run build",
+    "seed": "npm --prefix backend run seed"
+  }
+}

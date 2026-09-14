@@ -1,0 +1,237 @@
+.social-proof {
+  background: var(--color-dark-2);
+  overflow: hidden;
+}
+
+.social-proof__header {
+  margin-bottom: 2.5rem;
+}
+
+/* Instagram-style grid */
+.social-proof__gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+  margin-bottom: 3rem;
+}
+
+.social-proof__photo {
+  position: relative;
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.social-proof__photo:hover,
+.social-proof__photo--active {
+  border-color: var(--color-gold);
+  transform: scale(1.02);
+}
+
+.social-proof__photo-img {
+  width: 100%;
+  height: 100%;
+}
+
+.social-proof__photo-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-proof__photo-hint {
+  font-size: 0.6875rem;
+  color: var(--color-gray);
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.social-proof__photo-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 0.875rem;
+  background: linear-gradient(to top, rgba(0,0,0,0.85), transparent);
+  transform: translateY(100%);
+  transition: transform var(--transition-base);
+}
+
+.social-proof__photo:hover .social-proof__photo-overlay {
+  transform: translateY(0);
+}
+
+.social-proof__photo-name {
+  font-size: 0.8125rem;
+  font-weight: 500;
+  color: var(--color-white);
+  margin-top: 0.25rem;
+}
+
+/* Testimonial */
+.social-proof__testimonial {
+  max-width: 720px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+}
+
+.social-proof__quote-mark {
+  font-family: var(--font-heading);
+  font-size: 8rem;
+  color: var(--color-gold);
+  opacity: 0.15;
+  line-height: 0.7;
+  margin-bottom: 1rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.social-proof__review-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: fadeIn 0.4s ease;
+}
+
+.star-rating {
+  display: flex;
+  gap: 2px;
+}
+
+.social-proof__quote {
+  font-family: var(--font-heading);
+  font-size: clamp(1.125rem, 2.5vw, 1.375rem);
+  font-style: italic;
+  color: var(--color-white);
+  line-height: 1.65;
+  max-width: 600px;
+}
+
+.social-proof__reviewer {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 0.5rem;
+}
+
+.social-proof__reviewer-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  border: 2px solid var(--color-gold);
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--color-gold);
+  background: rgba(201, 169, 110, 0.1);
+}
+
+.social-proof__reviewer-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.social-proof__reviewer-name {
+  font-weight: 600;
+  color: var(--color-white);
+  font-size: 0.9375rem;
+  text-align: left;
+}
+
+.social-proof__reviewer-location {
+  font-size: 0.8125rem;
+  color: var(--color-gray-light);
+  text-align: left;
+}
+
+/* Navigation */
+.social-proof__nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.social-proof__nav-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--color-border);
+  color: var(--color-white);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all var(--transition-fast);
+}
+
+.social-proof__nav-btn:hover {
+  border-color: var(--color-gold);
+  color: var(--color-gold);
+  background: rgba(201, 169, 110, 0.08);
+}
+
+.social-proof__dots {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.social-proof__dot {
+  width: 8px;
+  height: 8px;
+  border-radius: var(--radius-full);
+  background: var(--color-border);
+  transition: all var(--transition-base);
+}
+
+.social-proof__dot--active {
+  background: var(--color-gold);
+  width: 24px;
+}
+
+@media (max-width: 768px) {
+  .social-proof__gallery {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .social-proof__gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.5rem;
+  }
+
+  .social-proof__quote {
+    font-size: 1rem;
+  }
+
+  .social-proof__quote-mark {
+    font-size: 5rem;
+  }
+
+  .social-proof__reviewer {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .social-proof__reviewer-name,
+  .social-proof__reviewer-location {
+    text-align: center;
+  }
+
+  .social-proof__testimonial {
+    padding: 0 0.5rem;
+  }
+}

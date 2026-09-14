@@ -1,0 +1,312 @@
+/* Navbar */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: var(--z-nav);
+  padding: 1.25rem 0;
+  transition: background var(--transition-base), padding var(--transition-base), box-shadow var(--transition-base);
+  background: transparent;
+}
+
+.navbar--scrolled {
+  background: rgba(10, 10, 10, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  padding: 0.875rem 0;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4);
+  border-bottom: 1px solid rgba(201, 169, 110, 0.1);
+}
+
+.navbar__inner {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+/* Logo */
+.navbar__logo {
+  font-family: var(--font-heading);
+  font-size: 1.625rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  flex-shrink: 0;
+  transition: opacity var(--transition-fast);
+}
+
+.navbar__logo:hover {
+  opacity: 0.85;
+}
+
+.navbar__logo-just {
+  color: var(--color-white);
+}
+
+.navbar__logo-hairs {
+  color: var(--color-gold);
+}
+
+/* Desktop links */
+.navbar__links {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: auto;
+}
+
+.navbar__link {
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.75);
+  padding: 0.5rem 0.875rem;
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  position: relative;
+  letter-spacing: 0.01em;
+}
+
+.navbar__link::after {
+  content: '';
+  position: absolute;
+  bottom: 2px;
+  left: 0.875rem;
+  right: 0.875rem;
+  height: 1px;
+  background: var(--color-gold);
+  transform: scaleX(0);
+  transition: transform var(--transition-base);
+}
+
+.navbar__link:hover,
+.navbar__link--active {
+  color: var(--color-white);
+}
+
+.navbar__link:hover::after,
+.navbar__link--active::after {
+  transform: scaleX(1);
+}
+
+/* Actions */
+.navbar__actions {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  margin-left: 1rem;
+}
+
+.navbar__icon-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  color: rgba(255, 255, 255, 0.8);
+  transition: color var(--transition-fast), background var(--transition-fast);
+  position: relative;
+}
+
+.navbar__icon-btn:hover {
+  color: var(--color-gold);
+  background: rgba(201, 169, 110, 0.08);
+}
+
+.navbar__whatsapp-btn:hover {
+  color: #25d366 !important;
+  background: rgba(37, 211, 102, 0.1) !important;
+}
+
+.navbar__cart-badge {
+  position: absolute;
+  top: 4px;
+  right: 4px;
+  background: var(--color-gold);
+  color: var(--color-black);
+  font-size: 0.6rem;
+  font-weight: 700;
+  width: 16px;
+  height: 16px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1;
+}
+
+/* Mobile toggle */
+.navbar__mobile-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: var(--color-white);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-fast);
+}
+
+.navbar__mobile-toggle:hover {
+  color: var(--color-gold);
+}
+
+/* Search bar */
+.navbar__search {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(10, 10, 10, 0.96);
+  backdrop-filter: blur(16px);
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  padding: 1rem 0;
+  animation: fadeInUp 0.2s ease;
+}
+
+.navbar__search-inner {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-full);
+  padding: 0.625rem 1.25rem;
+  background: var(--color-dark-2);
+  transition: border-color var(--transition-fast);
+}
+
+.navbar__search-inner:focus-within {
+  border-color: var(--color-gold);
+}
+
+.navbar__search-icon {
+  color: var(--color-gray-light);
+  flex-shrink: 0;
+}
+
+.navbar__search-input {
+  flex: 1;
+  background: none;
+  border: none;
+  outline: none;
+  color: var(--color-white);
+  font-size: 0.9375rem;
+}
+
+.navbar__search-input::placeholder {
+  color: var(--color-gray-light);
+}
+
+.navbar__search-close {
+  color: var(--color-gray-light);
+  display: flex;
+  align-items: center;
+  transition: color var(--transition-fast);
+}
+
+.navbar__search-close:hover {
+  color: var(--color-white);
+}
+
+/* Mobile menu */
+.navbar__mobile-menu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 300px;
+  background: var(--color-dark);
+  z-index: calc(var(--z-nav) + 1);
+  padding: 5rem 2rem 2rem;
+  display: flex;
+  flex-direction: column;
+  animation: slideInRight 0.3s ease;
+  border-left: 1px solid var(--color-border);
+}
+
+@keyframes slideInRight {
+  from { transform: translateX(100%); }
+  to { transform: translateX(0); }
+}
+
+.navbar__mobile-link {
+  display: block;
+  font-size: 1.125rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  padding: 1rem 0;
+  border-bottom: 1px solid var(--color-border);
+  transition: color var(--transition-fast), padding-left var(--transition-fast);
+}
+
+.navbar__mobile-link:hover {
+  color: var(--color-gold);
+  padding-left: 0.5rem;
+}
+
+.navbar__mobile-footer {
+  margin-top: auto;
+}
+
+.navbar__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: var(--z-nav);
+  animation: fadeIn 0.2s ease;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar__links {
+    display: none;
+  }
+
+  .navbar__mobile-toggle {
+    display: flex;
+  }
+}
+
+@media (max-width: 480px) {
+  .navbar__inner {
+    gap: 0.5rem;
+  }
+
+  /* Keep only essential icons on very small screens */
+  .navbar__whatsapp-btn {
+    display: none;
+  }
+
+  .navbar__search {
+    padding: 0.75rem 0;
+  }
+
+  .navbar__search-inner {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar__search-input {
+    font-size: 0.875rem;
+  }
+
+  .navbar__mobile-menu {
+    width: 100%;
+    border-left: none;
+  }
+
+  .navbar__logo {
+    font-size: 1.375rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .navbar__actions {
+    gap: 0;
+  }
+
+  .navbar__icon-btn {
+    width: 36px;
+    height: 36px;
+  }
+}

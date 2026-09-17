@@ -1,7 +1,9 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://justhairs-api.onrender.com/api',
+  baseURL: import.meta.env.DEV
+    ? 'http://localhost:5000/api'
+    : 'https://justhairs-api.onrender.com/api',
   timeout: 15000,
 })
 
